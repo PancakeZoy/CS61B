@@ -93,8 +93,8 @@ public class ArrayDeque <T>{
         if (size != 0){
             size = size - 1;
         }
-        return value;
         downSize();
+        return value;
     }
 
     public T removeLast(){
@@ -104,8 +104,8 @@ public class ArrayDeque <T>{
         if (size!=0){
             size = size - 1;
         }
-        return value;
         downSize();
+        return value;
     }
 
     public T get(int index){
