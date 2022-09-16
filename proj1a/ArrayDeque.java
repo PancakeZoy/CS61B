@@ -1,11 +1,11 @@
-public class ArrayDeque <Type>{
+public class ArrayDeque <T>{
     private int size;
     private int nextFirst;
-    private Type[] items;
+    private T[] items;
     private int nextLast;
 
     public ArrayDeque(){
-        items = (Type[]) new Object[8];
+        items = (T[]) new Object[8];
         size = 0;
         nextFirst = 4;
         nextLast = 5;
@@ -39,7 +39,7 @@ public class ArrayDeque <Type>{
         }
     }
     private void resize(int newsize){
-        Type[] new_array = (Type[]) new Object[newsize];
+        T[] new_array = (T[]) new Object[newsize];
         for (int i=0; i<size; i++){
             new_array[i] = items[nextLast];
             nextLast = moveRight(nextLast);
@@ -49,7 +49,7 @@ public class ArrayDeque <Type>{
         nextLast = size;
     }
 
-    public void addFirst(Type item){
+    public void addFirst(T item){
         if (checkFull()){
             resize(size *2);
         }
@@ -58,7 +58,7 @@ public class ArrayDeque <Type>{
         nextFirst = moveLeft(nextFirst);
     }
 
-    public void addLast(Type item){
+    public void addLast(T item){
         if (checkFull()){
             resize(size *2);
         }
@@ -86,31 +86,31 @@ public class ArrayDeque <Type>{
     }
     
 
-    public Type removeFirst(){
+    public T removeFirst(){
         if (size==0){
             return null;
         }
         nextFirst = moveRight(nextFirst);
-        Type value = items[nextFirst];
+        T value = items[nextFirst];
         items[nextFirst] = null;
         size = size - 1;
         downSize();
         return value;
     }
 
-    public Type removeLast(){
+    public T removeLast(){
         if (size==0){
             return null;
         }
         nextLast = moveLeft(nextLast);
-        Type value = items[nextLast];
+        T value = items[nextLast];
         items[nextLast] = null;
         size = size - 1;
         downSize();
         return value;
     }
 
-    public Type get(int index){
+    public T get(int index){
         if (index >= size || index < 0){
             System.out.println("Invalid index!");
             return null;
@@ -119,7 +119,7 @@ public class ArrayDeque <Type>{
     }
 
     public ArrayDeque(ArrayDeque other) {
-        items = (Type[]) new Object[other.size];
+        items = (T[]) new Object[other.size];
         nextFirst = other.nextFirst;
         nextLast = other.nextLast;
         size = other.size;

@@ -1,9 +1,9 @@
-public class LinkedListDeque<Type> {
+public class LinkedListDeque<T> {
     private class Node {
         public Node prev;
-        public Type item;
+        public T item;
         public Node next;
-        public Node(Node p, Type i, Node n) {
+        public Node(Node p, T i, Node n) {
             prev = p;
             item = i;
             next = n;
@@ -19,14 +19,14 @@ public class LinkedListDeque<Type> {
         size = 0;
     }
 
-    public void addFirst(Type x){
+    public void addFirst(T x){
         Node add_item =  new Node(sentinel, x, sentinel.next);
         sentinel.next = add_item;
         add_item.next.prev = add_item;
         size += 1;
     }
 
-    public void addLast(Type x){
+    public void addLast(T x){
         Node add_item = new Node(sentinel.prev, x, sentinel);
         sentinel.prev.next = add_item;
         sentinel.prev = add_item;
@@ -50,8 +50,8 @@ public class LinkedListDeque<Type> {
         System.out.println();
     }
 
-    public Type removeFirst(){
-        Type toRemove = sentinel.next.item;
+    public T removeFirst(){
+        T toRemove = sentinel.next.item;
         sentinel.next = sentinel.next.next;
         sentinel.next.prev = sentinel;
         if (!isEmpty()) {
@@ -60,8 +60,8 @@ public class LinkedListDeque<Type> {
         return toRemove;
     }
 
-    public Type removeLast(){
-        Type toRemove = sentinel.prev.item;
+    public T removeLast(){
+        T toRemove = sentinel.prev.item;
         sentinel.prev = sentinel.prev.prev;
         sentinel.prev.next = sentinel;
         if (!isEmpty()) {
@@ -70,7 +70,7 @@ public class LinkedListDeque<Type> {
         return toRemove;
     }
 
-    public Type get(int index){
+    public T get(int index){
         Node toReturn = sentinel.next;
         for (int i = 0; i < index; i++){
             toReturn = toReturn.next;
@@ -78,14 +78,14 @@ public class LinkedListDeque<Type> {
         return toReturn.item;
     }
 
-    private Type getRecursive(int index, Node p){
+    private T getRecursive(int index, Node p){
         if (index == 0){
             return p.item;
         }
         return getRecursive(index-1, p.next);
     }
 
-    public Type getRecursive(int index){
+    public T getRecursive(int index){
         return getRecursive(index, sentinel.next);
     }
 
@@ -96,7 +96,7 @@ public class LinkedListDeque<Type> {
         size = 0;
 
         for (int i = 0; i < other.size(); i++) {
-            addLast((Type) other.get(i)); // (Type) is cast, since type of other is unknown
+            addLast((T) other.get(i)); // (T) is cast, since T of other is unknown
         }
 
     }
