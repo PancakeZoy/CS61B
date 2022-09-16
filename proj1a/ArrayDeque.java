@@ -87,25 +87,23 @@ public class ArrayDeque <T>{
     
 
     public T removeFirst(){
-        if (size==0){
-            return null;
-        }
         nextFirst = moveRight(nextFirst);
         T value = items[nextFirst];
         items[nextFirst] = null;
-        size = size - 1;
         downSize();
+        if (size != 0){
+            size = size - 1;
+        }
         return value;
     }
 
     public T removeLast(){
-        if (size==0){
-            return null;
-        }
         nextLast = moveLeft(nextLast);
         T value = items[nextLast];
         items[nextLast] = null;
-        size = size - 1;
+        if (size!=0){
+            size = size - 1;
+        }
         downSize();
         return value;
     }
