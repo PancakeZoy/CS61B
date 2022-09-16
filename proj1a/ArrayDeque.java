@@ -87,7 +87,6 @@ public class ArrayDeque <T>{
     
 
     public T removeFirst(){
-        downSize();        
         nextFirst = moveRight(nextFirst);
         T value = items[nextFirst];
         items[nextFirst] = null;
@@ -95,10 +94,10 @@ public class ArrayDeque <T>{
             size = size - 1;
         }
         return value;
+        downSize();
     }
 
     public T removeLast(){
-        downSize();        
         nextLast = moveLeft(nextLast);
         T value = items[nextLast];
         items[nextLast] = null;
@@ -106,6 +105,7 @@ public class ArrayDeque <T>{
             size = size - 1;
         }
         return value;
+        downSize();
     }
 
     public T get(int index){
