@@ -34,7 +34,7 @@ public class ArrayDeque <T>{
     }
 
     private  void downSize(){
-        if (size >= 16 && items.length/size > 4){
+        if (items.length >= 16 && items.length/size > 4){
             resize(items.length/2);
         }
     }
