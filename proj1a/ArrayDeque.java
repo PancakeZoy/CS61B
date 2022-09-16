@@ -126,27 +126,4 @@ public class ArrayDeque <T>{
 
         System.arraycopy(other.items, 0, items, 0, other.size);
     }
-
-    public static void main(String[] args) {
-        ArrayDeque<Integer> list = new ArrayDeque<>();
-        System.out.println("Wheter empty: " + list.isEmpty());
-        System.out.println("Size: " + list.size());
-        for (int i = 20; i>10; i--){
-            list.addFirst(i);
-        }
-        for (int i = 21; i<30; i++) {
-            list.addLast(i);
-        }
-        System.out.println("Wheter empty: " + list.isEmpty());
-        System.out.println("Size: " + list.size());
-        list.printDeque();
-        list.printDeque();
-        System.out.println("First item removed: " + list.removeFirst());
-        list.printDeque();
-        System.out.println("Size: " + list.size());
-        System.out.println("Last item removed: " + list.removeLast());
-        list.printDeque();
-        System.out.println("Size: " + list.size());
-        System.out.println("list[15] = " + list.get(15));
-    }
 }

@@ -100,29 +100,4 @@ public class LinkedListDeque<T> {
         }
 
     }
-
-
-    public static void main(String[] args) {
-        LinkedListDeque<String> list = new LinkedListDeque<>();
-        System.out.println("Wheter empty: " + list.isEmpty());
-        System.out.println("Size: " + list.size());
-        list.addFirst("cat");
-        list.addFirst("dog");
-        list.addLast("frog");
-        list.addLast("milf");
-        list.addLast("horse");
-        list.addLast("pancake");
-        System.out.println("Wheter empty: " + list.isEmpty());
-        System.out.println("Size: " + list.size());
-        list.printDeque();
-        System.out.println("First item removed: " + list.removeFirst());
-        list.printDeque();
-        System.out.println("Size: " + list.size());
-        System.out.println("Last item removed: " + list.removeLast());
-        list.printDeque();
-        System.out.println("Size: " + list.size());
-        System.out.println("list[1] = " + list.get(1));
-        System.out.println("list[1] = " + list.getRecursive(1));
-
-    }
 }
