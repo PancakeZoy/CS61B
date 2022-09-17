@@ -41,8 +41,8 @@ public class ArrayDeque <T>{
     private void resize(int newsize){
         T[] new_array = (T[]) new Object[newsize];
         for (int i=0; i<size; i++){
-            new_array[i] = items[nextLast];
-            nextLast = moveRight(nextLast);
+            nextFirst = moveRight(nextFirst);
+            new_array[i] = items[nextFirst];
         }
         items = new_array;
         nextFirst = newsize-1;
