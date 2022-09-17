@@ -56,6 +56,7 @@ public class ArrayDeque <T>{
         items[nextFirst] = item;
         size += 1;
         nextFirst = moveLeft(nextFirst);
+        System.out.println("add: "+item);
     }
 
     public void addLast(T item){
