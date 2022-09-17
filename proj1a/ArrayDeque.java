@@ -93,6 +93,7 @@ public class ArrayDeque <T>{
         if (size != 0){
             size = size - 1;
         }
+        printDeque();
         downSize();
         return value;
     }
