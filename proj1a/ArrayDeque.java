@@ -29,12 +29,12 @@ public class ArrayDeque <T>{
         return pointer;
     }
 
-    private  boolean checkFull(){
+    private boolean checkFull(){
         return (size == items.length);
     }
 
-    private  void downSize(){
-        if (items.length >= 16 && items.length/size > 4){
+    private void downSize(){
+        if (size >= 16 && items.length/size > 4){
             resize(items.length/2);
         }
     }
@@ -56,7 +56,6 @@ public class ArrayDeque <T>{
         items[nextFirst] = item;
         size += 1;
         nextFirst = moveLeft(nextFirst);
-        System.out.println("add: "+item);
     }
 
     public void addLast(T item){
@@ -85,7 +84,7 @@ public class ArrayDeque <T>{
         nextFirst = ptrnextFirst;
         System.out.println();
     }
-    
+
 
     public T removeFirst(){
         nextFirst = moveRight(nextFirst);
