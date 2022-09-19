@@ -1,4 +1,4 @@
-public class ArrayDeque <T>{
+public class ArrayDeque<T> {
     private int size;
     private int nextFirst;
     private T[] items;
@@ -12,21 +12,11 @@ public class ArrayDeque <T>{
     }
 
     private int moveLeft(int pointer){
-        if (pointer == 0){
-            pointer = items.length - 1;
-        }else{
-            pointer -= 1;
-        }
-        return pointer;
+        return (pointer - 1 + items.length) % items.length;
     }
 
     private int moveRight(int pointer){
-        if (pointer == items.length-1){
-            pointer = 0;
-        }else{
-            pointer += 1;
-        }
-        return pointer;
+        return (pointer + 1) % items.length;
     }
 
     private boolean checkFull(){
@@ -38,6 +28,7 @@ public class ArrayDeque <T>{
             resize(items.length/2);
         }
     }
+
     private void resize(int newsize){
         T[] new_array = (T[]) new Object[newsize];
         for (int i=0; i<size; i++){
