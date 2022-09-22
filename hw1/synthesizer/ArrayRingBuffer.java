@@ -95,20 +95,28 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
 
     @Override
     public boolean equals(Object o){
-        if (o instanceof ArrayRingBuffer other){
-            if (this.fillCount() != other.fillCount()){
-                return false;
-            }
-            Iterator<T> myItr = this.iterator();
-            Iterator<T> otherItr = other.iterator();
-            for (int i=0; i<this.fillCount(); i++){
-                if (myItr.next() != otherItr.next()){
-                    return false;
-                }
-            }
+        // Compare to itself.
+        if (o == this) {
             return true;
         }
-        return false;
+        if (o == null) {
+            return false;
+        }
+        if (o.getClass() != this.getClass()) {
+            return false;
+        }
+        ArrayRingBuffer<T> other = (ArrayRingBuffer<T>) o;
+        if (other.fillCount() != this.fillCount()) {
+            return false;
+        }
+        Iterator<T> myItr = this.iterator();
+        Iterator<T> otherItr = other.iterator();
+        for (int i=0; i<this.fillCount(); i++){
+            if (myItr.next() != otherItr.next()){
+                return false;
+            }
+        }
+        return true;
     }
 
     public Iterator<T> iterator(){
@@ -131,30 +139,4 @@ public class ArrayRingBuffer<T> extends AbstractBoundedQueue<T> {
             return returnitem;
         }
     }
-//    public static void main(String[] args) {
-//        BoundedQueue<Integer> A = new ArrayRingBuffer<>(5);
-//        A.enqueue(1);
-//        A.enqueue(2);
-//        A.enqueue(3);
-//        A.enqueue(4);
-//        A.enqueue(5);
-//        A.dequeue();
-//        A.dequeue();
-//        A.enqueue(5);
-//
-//        BoundedQueue<Integer> B = new ArrayRingBuffer<>(5);
-//        B.enqueue(3);
-//        B.enqueue(4);
-//        B.enqueue(5);
-//        B.enqueue(5);
-//
-//        System.out.println(A.equals(B));
-//        for (Integer i : A){
-//            System.out.println(i);
-//        }
-//        System.out.println();
-//        for (Integer j : B){
-//            System.out.println(j);
-//        }
-//    }
 }
