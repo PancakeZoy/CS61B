@@ -1,7 +1,7 @@
 package synthesizer;
 import java.util.Iterator;
 
-public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
+public class ArrayRingBuffer<T>  implements BoundedQueue<T>{
     /* Index for the next dequeue or peek. */
     private int first;
     /* Index for the next enqueue. */

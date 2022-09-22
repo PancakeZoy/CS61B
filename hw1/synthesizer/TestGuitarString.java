@@ -1,4 +1,4 @@
-package es.datastructur.synthesizer;
+package synthesizer;
 import edu.princeton.cs.introcs.StdAudio;
 import org.junit.Test;
 
