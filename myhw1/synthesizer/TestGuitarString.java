@@ -1,10 +1,7 @@
 package es.datastructur.synthesizer;
-
-/* Imports the required audio library from the
- * edu.princeton.cs.introcs package. */
 import edu.princeton.cs.introcs.StdAudio;
-
 import org.junit.Test;
+
 import static org.junit.Assert.*;
 
 /** Tests the GuitarString class.
@@ -22,7 +19,6 @@ public class TestGuitarString {
             aString.tic();
         }
     }
-
 
     @Test
     public void testTic() {
@@ -52,5 +48,4 @@ public class TestGuitarString {
         assertEquals(expected, s5, 0.001);
 
     }
-
 }

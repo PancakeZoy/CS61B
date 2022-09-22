@@ -84,7 +84,6 @@ public class ArrayDeque<T> {
         if (size != 0){
             size = size - 1;
         }
-        printDeque();
         downSize();
         return value;
     }
@@ -102,7 +101,6 @@ public class ArrayDeque<T> {
 
     public T get(int index){
         if (index >= size || index < 0){
-            System.out.println("Invalid index!");
             return null;
         }
         return items[(moveRight(nextFirst) + index) % items.length];
