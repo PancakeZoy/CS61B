@@ -44,7 +44,7 @@ public class TestComplexOomage {
         for (int i = 0; i < N; i += 1) {
             List<Integer> par = new ArrayList<>();
             par.add(1);
-            for (int j = 4; j < 4+N; j+=1){
+            for (int j = 0; j < 4+i; j+=1){
                 par.add(1);
             }
             ComplexOomage dead = new ComplexOomage(par);
